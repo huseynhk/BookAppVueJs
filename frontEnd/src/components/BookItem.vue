@@ -14,8 +14,8 @@
                     <p class="py-1 px-2 bg-dark text-white badge mb-0"> {{ book.uploadDate }}</p>
                 </div>
             </div>
-            <span
-                class="position-absolute top-0 start-100  translate-middle p-2 bg-success text-warning rounded-pill border border-2 border-warning">
+            <span :class="ratingBadgeClass"
+                class="position-absolute top-0 start-100  translate-middle p-2  text-warning rounded-pill border border-2 border-warning">
                 {{ book.rating }}</span>
         </div>
     </div>
@@ -28,6 +28,20 @@ export default {
         book: {
             type: Object,
             default: () => ([])
+        }
+    },
+    computed: {
+        ratingBadgeClass() {
+            if (this.book.rating > 8) {
+                return 'bg-success'
+            }
+            else if (this.book.rating > 5) {
+                return 'bg-secondary'
+            }
+            else {
+                return 'bg-danger'
+
+            }
         }
     }
 }
