@@ -1,7 +1,7 @@
 <template>
     <nav nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container py-2">
-            <a href="#" class="navbar-brand">{{ logoName.toUpperCase() }}</a>
+            <RouterLink v-bind:to="{ name: 'Home' }" class="navbar-brand">{{ logoName.toUpperCase() }}</RouterLink>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -9,19 +9,29 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto ">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <RouterLink v-bind:to="{ name: 'Home' }" class="nav-link">
+                            Home </RouterLink>
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Books</a>
+                        <RouterLink v-bind:to="{ name: 'Books' }" class="nav-link">
+                            Books </RouterLink>
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <RouterLink v-bind:to="{ name: 'Contact' }" class="nav-link">
+                            Contact </RouterLink>
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <RouterLink v-bind:to="{ name: 'Login' }" class="nav-link">
+                            Login </RouterLink>
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <RouterLink v-bind:to="{ name: 'Register' }" class="nav-link">
+                            Register </RouterLink>
+
                     </li>
                 </ul>
 
@@ -31,13 +41,16 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
     name: "NavBar",
     data() {
         return {
             logoName: "BookBuy"
-        }
-    }
+        };
+    },
+    components: { RouterLink }
 }
 </script>
 
@@ -51,8 +64,17 @@ export default {
 }
 
 .nav-link {
-    padding: 10px 25px;
+    padding: 10px 20px !important;
     color: white;
     text-align: center;
+}
+
+.nav-link:hover {
+    color: rgb(180, 225, 250);
+}
+
+.active-link {
+    color: rgb(180, 225, 250);
+
 }
 </style> 
